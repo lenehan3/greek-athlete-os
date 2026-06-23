@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  /* Honour the iPhone safe areas so the notch/home-indicator zones stay black
+     and the app content is not clipped. */
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+#root {
+  min-height: 100vh;
+}
