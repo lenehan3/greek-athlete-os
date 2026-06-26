@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Shuffle, RotateCcw, Eye, MoreHorizontal, Flame, Activity, Target, Zap, TrendingUp, Coffee } from 'lucide-react';
-import { program, days, tagColors } from './program.js';
+import { Shuffle, RotateCcw, Eye, MoreHorizontal, Flame, Activity, Target, Zap, TrendingUp, TrendingDown, Coffee } from 'lucide-react';
+import { program, days, tagColors, cutPlan } from './program.js';
 
 // --- Persistence -----------------------------------------------------------
 // Browser localStorage replaces the (non-existent) window.storage API.
@@ -32,6 +32,8 @@ export default function App() {
   const [activeDay, setActiveDay] = useState(todayKey);
   const [completed, setCompleted] = useState({});
   const [loaded, setLoaded] = useState(false);
+  const [weightLog, setWeightLog] = useState({});
+  const [weightInput, setWeightInput] = useState('');
 
   useEffect(() => {
     try {
@@ -39,8 +41,22 @@ export default function App() {
       const result = storage.get(`completed:${today}`);
       if (result?.value) setCompleted(JSON.parse(result.value));
     } catch (e) {}
+    try {
+      const w = storage.get('cut:weightlog');
+      if (w?.value) setWeightLog(JSON.parse(w.value));
+    } catch (e) {}
     setLoaded(true);
   }, []);
+
+  const logWeight = () => {
+    const kg = parseFloat(weightInput);
+    if (!kg || kg <= 0) return;
+    const d = new Date().toISOString().split('T')[0];
+    const next = { ...weightLog, [d]: Math.round(kg * 10) / 10 };
+    setWeightLog(next);
+    storage.set('cut:weightlog', JSON.stringify(next));
+    setWeightInput('');
+  };
 
   const toggleExercise = (key) => {
     const next = { ...completed, [key]: !completed[key] };
@@ -62,6 +78,30 @@ export default function App() {
   );
   const progress = totalExercises > 0 ? (completedCount / totalExercises) * 100 : 0;
   const tc = tagColors[day.tagColor];
+
+  // --- Cut tracker math ----------------------------------------------------
+  const weightEntries = Object.entries(weightLog).sort((a, b) => (a[0] < b[0] ? -1 : 1));
+  const currentKg = weightEntries.length ? weightEntries[weightEntries.length - 1][1] : cutPlan.startKg;
+  const prevKg = weightEntries.length > 1 ? weightEntries[weightEntries.length - 2][1] : null;
+  const lastChange = prevKg != null ? currentKg - prevKg : null;
+  const kgToGo = Math.max(0, currentKg - cutPlan.targetKg);
+  const totalToLose = cutPlan.journeyStartKg - cutPlan.targetKg;
+  const journeyPct = Math.min(100, Math.max(0, ((cutPlan.journeyStartKg - currentKg) / totalToLose) * 100));
+  const msWeek = 7 * 24 * 3600 * 1000;
+  const weeksElapsed = Math.max(0, (Date.now() - new Date(cutPlan.startDate).getTime()) / msWeek);
+  const expectedKg = cutPlan.startKg - cutPlan.rateKgPerWeek * weeksElapsed;
+  const scheduleDelta = currentKg - expectedKg; // negative = ahead (leaner than plan)
+  const weeksToGo = kgToGo / cutPlan.rateKgPerWeek;
+  const finishLabel = new Date(Date.now() + weeksToGo * msWeek)
+    .toLocaleDateString('en-AU', { day: 'numeric', month: 'short' });
+  const atTarget = kgToGo <= 0;
+  const cutStatus = atTarget
+    ? { text: 'Target hit — lock it in.', color: 'text-yellow-400' }
+    : scheduleDelta <= -0.2
+      ? { text: `Ahead of plan by ${Math.abs(scheduleDelta).toFixed(1)} kg.`, color: 'text-green-400' }
+      : scheduleDelta >= 0.2
+        ? { text: `${scheduleDelta.toFixed(1)} kg behind plan — tighten the deficit.`, color: 'text-orange-400' }
+        : { text: 'Right on schedule.', color: 'text-green-400' };
 
   return (
     <div className="min-h-screen bg-stone-100 p-3 font-sans">
@@ -237,7 +277,7 @@ export default function App() {
               Target
             </div>
             <div className="text-white font-bold">74-75 kg</div>
-            <div className="text-stone-500 text-xs">~14 weeks</div>
+            <div className="text-stone-500 text-xs">down from 93 kg</div>
           </div>
           <div className="bg-white/5 rounded-xl p-3 border border-white/5">
             <div className="flex items-center gap-1.5 text-stone-400 text-[10px] uppercase tracking-wider mb-1">
@@ -272,6 +312,74 @@ export default function App() {
               <span className="text-white font-semibold">Reta protocol:</span> let appetite suppression work. Pre-workout 30g protein + black coffee. Intra: 5g creatine + electrolytes (sodium critical).
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Cut tracker */}
+      <div className="bg-black rounded-3xl p-5 mt-3">
+        <div className="flex items-center justify-between mb-3">
+          <div className="text-yellow-500 text-[10px] font-mono tracking-[0.2em]">
+            CUT TRACKER
+          </div>
+          <div className="text-stone-500 text-[10px] font-mono">
+            {atTarget ? 'DONE' : `~${finishLabel} @ ${cutPlan.rateKgPerWeek}kg/wk`}
+          </div>
+        </div>
+
+        <div className="flex items-end gap-3">
+          <div className="text-4xl font-bold text-white tracking-tight">
+            {currentKg}
+            <span className="text-lg text-stone-500 font-normal"> kg</span>
+          </div>
+          {lastChange != null && Math.abs(lastChange) >= 0.05 && (
+            <div className={`flex items-center gap-1 text-sm font-mono mb-1.5 ${lastChange < 0 ? 'text-green-400' : 'text-orange-400'}`}>
+              {lastChange < 0 ? <TrendingDown className="w-4 h-4" /> : <TrendingUp className="w-4 h-4" />}
+              {Math.abs(lastChange).toFixed(1)}
+            </div>
+          )}
+          <div className="ml-auto text-right mb-1">
+            <div className="text-white font-bold text-sm">{atTarget ? '0.0' : kgToGo.toFixed(1)} kg</div>
+            <div className="text-stone-500 text-[10px] uppercase tracking-wider">to go</div>
+          </div>
+        </div>
+
+        {/* Journey progress bar */}
+        <div className="mt-4">
+          <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-yellow-400 transition-all duration-500"
+              style={{ width: `${journeyPct}%` }}
+            />
+          </div>
+          <div className="flex justify-between text-[10px] font-mono text-stone-500 mt-1.5">
+            <span>{cutPlan.journeyStartKg} start</span>
+            <span>{Math.round(journeyPct)}%</span>
+            <span>{cutPlan.targetLabel}</span>
+          </div>
+        </div>
+
+        <div className={`mt-3 text-xs font-medium ${cutStatus.color}`}>
+          {cutStatus.text}
+        </div>
+
+        {/* Log weight */}
+        <div className="flex gap-2 mt-4">
+          <input
+            type="number"
+            inputMode="decimal"
+            step="0.1"
+            value={weightInput}
+            onChange={(e) => setWeightInput(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter') logWeight(); }}
+            placeholder="Log today's weight (kg)"
+            className="flex-1 min-w-0 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm placeholder-stone-600 focus:outline-none focus:border-yellow-500/50"
+          />
+          <button
+            onClick={logWeight}
+            className="px-4 py-2 bg-yellow-500 text-black font-semibold rounded-lg text-sm active:opacity-80 whitespace-nowrap"
+          >
+            Log
+          </button>
         </div>
       </div>
 

@@ -196,6 +196,22 @@ export const program = {
 
 export const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
+// Cut plan — drives the CUT TRACKER card. Edit these to retarget the cut.
+//   journeyStartKg : where the whole cut began (for the full progress bar)
+//   startKg        : weight on startDate, the anchor for the on-track schedule
+//   startDate      : YYYY-MM-DD the 0.5kg/wk schedule is measured from
+//   targetKg       : numeric goal used for the math (midpoint of the range)
+//   targetLabel    : how the goal is shown
+//   rateKgPerWeek  : planned loss rate
+export const cutPlan = {
+  journeyStartKg: 93,
+  startKg: 80,
+  startDate: "2026-06-26",
+  targetKg: 74.5,
+  targetLabel: "74-75 kg",
+  rateKgPerWeek: 0.5
+};
+
 export const tagColors = {
   yellow: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/30' },
   green: { bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/30' },
