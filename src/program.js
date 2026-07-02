@@ -28,7 +28,7 @@ export const program = {
     mon: {
       label: "MON",
       title: "FULL BODY A",
-      subtitle: "Heavy · Push Focus",
+      subtitle: "Heavy Push + Posterior",
       tag: "HEAVY",
       tagColor: "yellow",
       duration: "45-50 min",
@@ -52,7 +52,8 @@ export const program = {
           name: "POSTERIOR + ARMS",
           exercises: [
             { name: "Romanian Deadlift", sets: "1×6-8, 1×8-10", note: "RPT — hammies + glutes, whole leg in one move" },
-            { name: "Overhead Cable Tricep Ext", sets: "2×10-12", note: "Long head emphasis" }
+            { name: "Overhead Cable Tricep Ext", sets: "2×10-12", note: "Long head emphasis" },
+            { name: "Cable Tricep Pushdown", sets: "2×10-12", note: "Squeeze at the bottom" }
           ]
         }
       ]
@@ -78,7 +79,7 @@ export const program = {
     wed: {
       label: "WED",
       title: "FULL BODY B",
-      subtitle: "Heavy · Pull Focus",
+      subtitle: "Heavy Pull + Legs",
       tag: "HEAVY",
       tagColor: "yellow",
       duration: "45-50 min",
@@ -101,8 +102,9 @@ export const program = {
         {
           name: "LEGS + BICEPS",
           exercises: [
-            { name: "Walking Lunge", sets: "2×10 each", note: "Long stride, glute focus — maintain not grow" },
-            { name: "Incline DB Curl", sets: "2×8-10", note: "Long head stretch" }
+            { name: "Walking Lunge", sets: "3×10-12 each", note: "Long stride, glute focus" },
+            { name: "Incline DB Curl", sets: "2×8-10", note: "Long head stretch" },
+            { name: "Cable/EZ-Bar Curl", sets: "2×10-12", note: "Strict, no momentum" }
           ]
         }
       ]
