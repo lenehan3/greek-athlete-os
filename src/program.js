@@ -61,16 +61,16 @@ export const program = {
     tue: {
       label: "TUE",
       title: "WALK",
-      subtitle: "Active Recovery",
-      tag: "RECOVERY",
+      subtitle: "Zone 2 Base",
+      tag: "ZONE 2",
       tagColor: "blue",
       duration: "30-40 min",
-      focus: "Optional Zone 2 toward your 8-10k step floor. Or just rest — recovery IS the program now.",
+      focus: "The easy 80%. Nasal-breathing, conversational pace — builds the aerobic base that lets Saturday's intervals hit harder. Also feeds your 8-10k step floor.",
       sections: [
         {
           name: "SESSION",
           exercises: [
-            { name: "Incline Walk", sets: "30-40 min @ 10-12%", note: "Zone 2, fasted ideally", priority: true },
+            { name: "Incline Walk", sets: "30-40 min @ 10-12%", note: "Zone 2, fasted ideally — HR ~60-70% max, still able to talk", priority: true },
             { name: "Vacuums", sets: "3×30-45s", note: "Mid-walk or post" }
           ]
         }
@@ -112,16 +112,22 @@ export const program = {
     thu: {
       label: "THU",
       title: "WALK",
-      subtitle: "Active Recovery",
-      tag: "RECOVERY",
+      subtitle: "Zone 2 Base",
+      tag: "ZONE 2",
       tagColor: "blue",
       duration: "30-40 min",
-      focus: "Easy steps, sun, mobility. Keep it conversational — let Friday's session land fresh.",
+      focus: "More easy aerobic base. Steps, sun, mobility — keep it conversational so Friday's lift and Saturday's intervals both land fresh.",
       sections: [
         {
           name: "SESSION",
           exercises: [
-            { name: "Outdoor Walk", sets: "30-40 min", note: "Easy pace, conversational", priority: true }
+            { name: "Outdoor Walk", sets: "30-40 min", note: "Easy pace, conversational — recovery, not a workout", priority: true }
+          ]
+        },
+        {
+          name: "OPTIONAL FINISHER",
+          exercises: [
+            { name: "10× Hill Sprints", sets: "10-15s all-out, walk down to recover", note: "Only if fresh — pure power + capillary density, near-zero interference with lifting" }
           ]
         }
       ]
@@ -162,23 +168,31 @@ export const program = {
     },
     sat: {
       label: "SAT",
-      title: "RUN",
-      subtitle: "5km Conditioning",
-      tag: "REFEED",
-      tagColor: "orange",
-      duration: "30-35 min",
-      focus: "Cardio output + refeed. The one day carbs go up — leptin + thyroid reset before the next block.",
+      title: "VO2 MAX",
+      subtitle: "Norwegian 4×4",
+      tag: "VO2",
+      tagColor: "red",
+      duration: "35-40 min",
+      focus: "The one session that actually builds VO2 max — you have to spend minutes NEAR your ceiling to raise it. Four hard 4-min efforts is the minimum effective dose. Paired with the refeed: max output, then carbs up.",
       sections: [
         {
-          name: "SESSION",
+          name: "WARM-UP",
           exercises: [
-            { name: "5km Run", sets: "Steady pace", note: "Outdoor preferred — Bungan loop", priority: true }
+            { name: "Easy Jog", sets: "8-10 min", note: "Build to a light sweat — do NOT skip, cold intervals wreck the first rep", priority: true }
           ]
         },
         {
-          name: "REFEED PROTOCOL",
+          name: "MAIN — 4×4",
           exercises: [
-            { name: "Carbs +150-200g today", sets: "Rice, potatoes, dates, honey", note: "Keeps leptin + thyroid up" }
+            { name: "4 min HARD @ 90-95% HRmax", sets: "×4 intervals", note: "~8-9/10 effort — can't hold a conversation, but sustainable to the 4-min mark. Bungan loop or any hill.", priority: true },
+            { name: "3 min easy jog recovery", sets: "between each", note: "Let HR drop to ~70% — the recovery is what lets the next rep hit VO2 max" }
+          ]
+        },
+        {
+          name: "COOL-DOWN + REFEED",
+          exercises: [
+            { name: "Easy Jog / Walk", sets: "5 min", note: "Flush the legs, drop HR gradually" },
+            { name: "Carbs +150-200g today", sets: "Rice, potatoes, dates, honey", note: "Refeed — keeps leptin + thyroid up after the hard output" }
           ]
         }
       ]
@@ -219,5 +233,6 @@ export const tagColors = {
   green: { bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/30' },
   blue: { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/30' },
   orange: { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/30' },
+  red: { bg: 'bg-red-500/10', text: 'text-red-400', border: 'border-red-500/30' },
   gray: { bg: 'bg-gray-500/10', text: 'text-gray-400', border: 'border-gray-500/30' }
 };
