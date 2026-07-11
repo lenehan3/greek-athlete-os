@@ -46,7 +46,7 @@ export const program = {
         {
           name: "SHAPE",
           exercises: [
-            { name: "Cable Lateral Raise", sets: "3×12-15", note: "Behind the back, constant tension — your #1 muscle, feel every rep", priority: true },
+            { name: "Cable Lateral Raise", sets: "4×12-15", note: "Behind the back, constant tension — your #1 muscle, feel every rep", priority: true },
             { name: "Cable Fly / Pec Deck", sets: "3×12-15", note: "Squeeze 1s at the peak, slow negative — best chest pump there is" }
           ]
         },
@@ -79,6 +79,7 @@ export const program = {
           name: "DETAIL",
           exercises: [
             { name: "Cable Row (neutral grip)", sets: "3×10-12", note: "Big stretch forward, elbows back — feels amazing" },
+            { name: "DB Lateral Raise", sets: "3×12-15", note: "Extra side-delt volume — priority muscle, hit 3×/week. Strict, no swing, slow negative.", priority: true },
             { name: "Reverse Pec Deck", sets: "3×15-20", note: "Rear delts — high reps, the 3D-shoulder detail most people skip" }
           ]
         },
@@ -97,7 +98,7 @@ export const program = {
       subtitle: "Quads · Hams · Calves",
       tag: "LEGS",
       tagColor: "orange",
-      duration: "45-50 min",
+      duration: "50-55 min",
       focus: "Machine-led so you can push hard without a spotter or a fried lower back. Enough to build athletic, proportioned legs — not so much you can't walk Thursday.",
       sections: [
         {
@@ -112,7 +113,8 @@ export const program = {
           exercises: [
             { name: "Seated Leg Curl", sets: "3×12-15", note: "Hamstrings, squeeze hard — pairs with the RDL" },
             { name: "Leg Extension", sets: "3×12-15", note: "Quad sweep, pause at the top, last set partials to failure" },
-            { name: "Standing Calf Raise", sets: "3×12-15", note: "Full stretch + 1s pause at the bottom, heavy" }
+            { name: "Standing Calf Raise", sets: "3×12-15", note: "Full stretch + 1s pause at the bottom, heavy" },
+            { name: "Seated Calf Raise", sets: "3×15-20", note: "Soleus — the bit the standing raise can't hit. Higher reps, deep stretch." }
           ]
         }
       ]
