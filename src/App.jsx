@@ -390,44 +390,44 @@ export default function App() {
         </div>
         <div className="space-y-3 text-sm">
           <div className="flex items-start gap-3">
-            <div className="text-green-400 font-mono text-xs mt-1 whitespace-nowrap">3 DAYS</div>
+            <div className="text-green-400 font-mono text-xs mt-1 whitespace-nowrap">STICK</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Less is more.</span> Down from 4 lifts + a cardio day to 3 full-body sessions, ~45 min each — about 2.5 hrs of lifting a week, total. Mon / Wed / Fri.
+              <span className="text-white font-semibold">Adherence beats "optimal."</span> The program you enjoy and run for months out-builds the perfect one you quit in three weeks. Variety, pump, a fun delts+arms day — you show up because you want to.
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="text-yellow-400 font-mono text-xs mt-1">⅓</div>
+            <div className="text-purple-400 font-mono text-xs mt-1">SPLIT</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Maintenance ≈ a third of growth volume.</span> A 32-wk RCT held muscle AND strength on as little as 1/3 — even 1 set/wk — as long as the load stayed heavy. <span className="text-stone-500">(Bickel 2011)</span>
+              <span className="text-white font-semibold">Push / Pull / Legs / Delts.</span> Each muscle trained ~2×/week with enough volume to grow. More exercises per session than the minimalist block — that's where the enjoyment and the shape both come from.
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="text-orange-400 font-mono text-xs mt-1">3×</div>
+            <div className="text-orange-400 font-mono text-xs mt-1">10-20</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Side delts every session.</span> ~11 hard lateral sets/wk — your #1 priority. Frequency doesn't change size once volume's matched, so 3× just keeps them stimulated. <span className="text-stone-500">(Schoenfeld 2019)</span>
+              <span className="text-white font-semibold">Volume drives growth.</span> ~10-20 hard sets per muscle per week is the hypertrophy sweet spot — side delts sit at the top of that range on purpose. <span className="text-stone-500">(Schoenfeld / Pelland 2025)</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="text-red-400 font-mono text-xs mt-1">LOAD</div>
+            <div className="text-red-400 font-mono text-xs mt-1">RIR</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Intensity is the one thing you can't cut.</span> Every working set is RPT or near failure (~75-85%+ 1RM). Drop sets, never drop the weight — that's what makes low volume work.
+              <span className="text-white font-semibold">Hard, not grim.</span> Stop 1-2 reps shy of failure on most sets, take the last set of each exercise to the limit. Same growth as all-out RPT, far less joint beating and dread. <span className="text-stone-500">(Effort ≠ suffering)</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="text-blue-400 font-mono text-xs mt-1">STR</div>
+            <div className="text-blue-400 font-mono text-xs mt-1">+1</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Your numbers barely move.</span> 1RM is far more durable than size — strength holds for months even at zero volume. Maintenance is easy mode for strength.
+              <span className="text-white font-semibold">Add a rep or a kilo.</span> On a cut, holding your numbers IS winning. Beat last week's logbook by one rep on the priority lifts and the physique takes care of itself.
             </div>
           </div>
         </div>
 
         <div className="mt-4 pt-4 border-t border-white/5 text-stone-500 text-[11px] italic leading-relaxed">
-          Fine print: the maintenance + minimum-dose trials were run in energy balance on previously-untrained lifters — the deficit numbers are a sound extrapolation, not a measured guarantee. The insurance policy is protein (2.2g/kg) + brutal intensity.
+          Fine print: 4 lifting days + a VO2 session is more output than the minimalist block, so on a 500-cal deficit prioritise sleep and protein (2.2g/kg). If recovery slips, drop the Friday pump day first — it's the fun bonus, not the foundation.
         </div>
       </div>
 
       <div className="text-center text-stone-500 text-xs mt-4 mb-2 font-mono">
-        v6.0 · 3-day minimalist cut · {totalExercises} exercises today
+        v7.0 · aesthetic split · {totalExercises} exercises today
       </div>
     </div>
   );
