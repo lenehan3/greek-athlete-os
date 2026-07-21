@@ -13,191 +13,198 @@
 // `tagColor` must be one of the keys in `tagColors` below.
 // `days` is the ordered list of day keys (controls tab order).
 //
-// V7.0 — The Aesthetic Split. 4 lifting days (Push / Pull / Legs / Delts+Arms)
-// built around exercises that FEEL good and keep you coming back: dumbbell,
-// cable and machine work in the 8-15 pump range, compounds where they earn
-// their place, one dedicated delts+arms day (your #1 look). Intensity still
-// there (1-2 reps in reserve, last set often to failure) but not grim RPT on
-// everything. Cardio kept: Zone 2 walk (Thu) + VO2 4×4 (Sat). Enjoy it and
-// you'll do it — adherence beats the "optimal" program you dread.
+// AESTHETIC SPLIT V1.0 — Will's own build. 5 lifting days (Pull-width / Push /
+// Legs / Delts+Arms / Pull-thickness) engineered for a best-ever physique while
+// carrying a high work load. Autoregulated: Friday is gated by sleep + work,
+// waking HR is watched, RIR keeps failure off the table except the last iso set,
+// deload wk6. Machine-led pressing + no overhead until the shoulder clears.
+// Built to lower cortisol, not just add volume. Recovery IS the program.
 // ---------------------------------------------------------------------------
 
 export const program = {
-  name: "GREEK ATHLETE OS V7.0",
-  subtitle: "The Aesthetic Split — Push / Pull / Legs / Delts",
-  philosophy: "The best program is the one you actually enjoy. Good exercises, real variety, chase the pump — show up because you want to.",
+  name: "AESTHETIC SPLIT V1.0",
+  subtitle: "Pull · Push · Legs · Delts · Autoregulated Cut",
+  philosophy: "Best physique of my life while working hard. Autoregulate the load, protect recovery, keep cortisol down. Show up, don't grind yourself into the ground.",
   days: {
     mon: {
       label: "MON",
-      title: "PUSH",
-      subtitle: "Chest · Shoulders · Triceps",
-      tag: "PUSH",
-      tagColor: "yellow",
+      title: "PULL",
+      subtitle: "Width",
+      tag: "WIDTH",
+      tagColor: "green",
       duration: "50-55 min",
-      focus: "Upper-chest led, delts close behind. Press heavy while you're fresh, then chase the pump with cables and machines. Leave 1-2 reps in the tank except the last set of each move.",
+      focus: "Width first. Pull with the elbows, lean into the stretch. RPT the pulldown while fresh, then feed the lats and rear delts. 1-2 RIR on compounds.",
       sections: [
         {
-          name: "PRESS",
+          name: "VERTICAL",
           exercises: [
-            { name: "Incline DB Press 30°", sets: "3×6-10", note: "Upper chest — the money maker. Full stretch at the bottom.", priority: true },
-            { name: "Seated Machine Shoulder Press", sets: "3×8-12", note: "Slight forward lean for side-delt bias, controlled" }
+            { name: "Pulldown (→ weighted pull-up)", sets: "RPT 3×6/8/10", note: "Heaviest set first, drop ~10% each set. +weight when set 1 hits 6 twice running.", priority: true },
+            { name: "Half-kneeling 1-arm Pulldown", sets: "3×10-12", note: "Big stretch overhead, drive the elbow to the hip" }
           ]
         },
         {
-          name: "SHAPE",
+          name: "HORIZONTAL",
           exercises: [
-            { name: "Cable Lateral Raise", sets: "4×12-15", note: "Behind the back, constant tension — your #1 muscle, feel every rep", priority: true },
-            { name: "Cable Fly / Pec Deck", sets: "3×12-15", note: "Squeeze 1s at the peak, slow negative — best chest pump there is" }
+            { name: "Chest-Supported Row", sets: "3×10-12", note: "No momentum, squeeze the mid-back", priority: true },
+            { name: "DB Pullover", sets: "3×12-15", note: "3s eccentric, feel the lat stretch" }
           ]
         },
         {
-          name: "TRICEPS",
+          name: "REAR + SPINE",
           exercises: [
-            { name: "Overhead Cable Extension", sets: "3×10-12", note: "Long head on stretch — the mass of the arm" },
-            { name: "Rope Pushdown", sets: "2×12-15", note: "Spread the rope at the bottom, last set to failure" }
+            { name: "Reverse Pec Deck", sets: "3×15", note: "Rear delts, slow and strict" },
+            { name: "Jefferson Curl (light)", sets: "2×8", note: "Spinal decompression, roll down slow. Light." }
           ]
         }
       ]
     },
     tue: {
       label: "TUE",
-      title: "PULL",
-      subtitle: "Back · Rear Delts · Biceps",
-      tag: "PULL",
-      tagColor: "green",
+      title: "PUSH",
+      subtitle: "Chest · Delts · Triceps",
+      tag: "PUSH",
+      tagColor: "yellow",
       duration: "50-55 min",
-      focus: "Width first, then thickness, then the fun stuff. Think about pulling with the elbows, not the hands — let the back do the work and the biceps grow anyway.",
+      focus: "Machine-led to spare the shoulder. Nothing overhead until cleared. RPT the incline, then pump the delts and tris.",
       sections: [
         {
-          name: "WIDTH",
+          name: "PRESS",
           exercises: [
-            { name: "Pull-Up / Lat Pulldown", sets: "3×6-10", note: "Wide-ish grip, lean back slightly, drive elbows to hips — lat width", priority: true },
-            { name: "Chest-Supported DB Row", sets: "3×8-12", note: "No momentum, squeeze the mid-back — thickness with zero lower-back strain", priority: true }
+            { name: "Incline Machine Press", sets: "RPT 3×6/8/10", note: "Upper chest. Heaviest first, +weight when set 1 hits 6 twice.", priority: true },
+            { name: "Flat Machine Press", sets: "3×8-12", note: "Controlled, full ROM, no lockout rest" }
           ]
         },
         {
-          name: "DETAIL",
+          name: "DELTS",
           exercises: [
-            { name: "Cable Row (neutral grip)", sets: "3×10-12", note: "Big stretch forward, elbows back — feels amazing" },
-            { name: "DB Lateral Raise", sets: "3×12-15", note: "Extra side-delt volume — priority muscle, hit 3×/week. Strict, no swing, slow negative.", priority: true },
-            { name: "Reverse Pec Deck", sets: "3×15-20", note: "Rear delts — high reps, the 3D-shoulder detail most people skip" }
+            { name: "Cross-body Cable Lateral", sets: "4×12-15", note: "Constant tension, your #1 muscle. Last set 0-1 RIR.", priority: true }
           ]
         },
         {
-          name: "BICEPS",
+          name: "TRICEPS + FINISH",
           exercises: [
-            { name: "Incline DB Curl", sets: "3×8-12", note: "Arms behind the body = long-head stretch, the peak", priority: true },
-            { name: "Cable / Hammer Curl", sets: "2×12-15", note: "Constant tension, last set drop to failure" }
+            { name: "Overhead Cable Tricep Ext", sets: "3×10-12", note: "Long head on stretch" },
+            { name: "Single-arm Pushdown", sets: "2×12-15", note: "Squeeze the bottom, last set to failure" },
+            { name: "Light DB Pullover", sets: "2×12", note: "Ribcage + lat stretch" },
+            { name: "Incline Walk", sets: "20 min", note: "Zone 2 finish" }
           ]
         }
       ]
     },
     wed: {
       label: "WED",
-      title: "LEGS",
+      title: "LEGS + CORE",
       subtitle: "Quads · Hams · Calves",
       tag: "LEGS",
       tagColor: "orange",
-      duration: "50-55 min",
-      focus: "Machine-led so you can push hard without a spotter or a fried lower back. Enough to build athletic, proportioned legs — not so much you can't walk Thursday.",
+      duration: "55-60 min",
+      focus: "One hard leg day. RPT the hinge, machine the squat pattern so the lower back stays fresh. Core and neck to finish.",
       sections: [
         {
-          name: "PRIMARY",
+          name: "HINGE + SQUAT",
           exercises: [
-            { name: "Leg Press / Hack Squat", sets: "3×8-12", note: "Full depth, controlled — all the quad, none of the barbell grind", priority: true },
-            { name: "Romanian Deadlift", sets: "3×8-10", note: "Hams + glutes, hinge at the hips, feel the stretch — light-ish, high control", priority: true }
+            { name: "Romanian Deadlift", sets: "RPT 3×6/8/10", note: "Hams + glutes. Hinge, don't squat it. Heaviest first.", priority: true },
+            { name: "Hack Squat / Leg Press", sets: "3×8-12", note: "Full depth, controlled", priority: true }
           ]
         },
         {
           name: "DETAIL",
           exercises: [
-            { name: "Seated Leg Curl", sets: "3×12-15", note: "Hamstrings, squeeze hard — pairs with the RDL" },
-            { name: "Leg Extension", sets: "3×12-15", note: "Quad sweep, pause at the top, last set partials to failure" },
-            { name: "Standing Calf Raise", sets: "3×12-15", note: "Full stretch + 1s pause at the bottom, heavy" },
-            { name: "Seated Calf Raise", sets: "3×15-20", note: "Soleus — the bit the standing raise can't hit. Higher reps, deep stretch." }
+            { name: "Seated Leg Curl", sets: "3×12-15", note: "Squeeze hard, pairs with the RDL" },
+            { name: "Walking Lunges", sets: "3×12-15", note: "Long stride, glute focus" },
+            { name: "Calf Raise", sets: "4×12-15", note: "Full stretch + 1s pause" }
+          ]
+        },
+        {
+          name: "CORE + NECK",
+          exercises: [
+            { name: "Hanging Leg Raise", sets: "3×10-15", note: "No swing, curl the pelvis" },
+            { name: "Vacuums", sets: "3×20s", note: "Tighter waist" },
+            { name: "Neck", sets: "2×15", note: "Aesthetic detail" },
+            { name: "Forward Fold Hang", sets: "2×60s", note: "Decompress the spine" }
           ]
         }
       ]
     },
     thu: {
       label: "THU",
-      title: "WALK",
-      subtitle: "Zone 2 Base",
-      tag: "ZONE 2",
-      tagColor: "blue",
-      duration: "30-40 min",
-      focus: "Easy aerobic base + recovery from legs. Conversational pace, sun, mobility — this is the easy 80% that keeps Saturday's intervals sharp and feeds your step floor.",
+      title: "DELTS + ARMS",
+      subtitle: "The Star Day ⭐",
+      tag: "SHOW",
+      tagColor: "purple",
+      duration: "50-55 min",
+      focus: "The one you look forward to. Highest side-delt volume, biggest arm pump. Push the last sets, drop sets and partials welcome. This is the look.",
       sections: [
         {
-          name: "SESSION",
+          name: "DELTS (PRIORITY)",
           exercises: [
-            { name: "Outdoor / Incline Walk", sets: "30-40 min", note: "Zone 2 — HR ~60-70% max, still able to talk. Recovery, not a workout.", priority: true }
+            { name: "Machine Lateral Raise", sets: "4×10-15", note: "Drop + partials on the last set. Your #1 muscle.", priority: true },
+            { name: "Incline Y-Raise", sets: "3×12-15", note: "Upper back + rear/side delt tie-in" },
+            { name: "Cable Rear Delt Flye", sets: "4×15", note: "3D shoulder, high reps" }
+          ]
+        },
+        {
+          name: "ARMS",
+          exercises: [
+            { name: "Bayesian Curl", sets: "4×8-12", note: "Cable behind the body = long-head stretch. Last set drop.", priority: true },
+            { name: "Rope Hammer Curl", sets: "4×10-12", note: "Brachialis + forearm, thickens the arm" },
+            { name: "Overhead Rope Extension", sets: "3×12-15", note: "Long-head triceps stretch" },
+            { name: "Wrist + Reverse Curls", sets: "3×15-20", note: "Forearms, don't skip" }
+          ]
+        },
+        {
+          name: "CARRY",
+          exercises: [
+            { name: "Farmer's Carry", sets: "2×40m", note: "Traps, grip, core. + 2 min nasal breathing after." }
           ]
         }
       ]
     },
     fri: {
       label: "FRI",
-      title: "DELTS + ARMS",
-      subtitle: "The Pump Day",
-      tag: "SHOW",
-      tagColor: "purple",
-      duration: "45-50 min",
-      focus: "The fun one. Highest side-delt volume of the week plus the arms — the muscles you actually see in the mirror. Superset, chase the burn, enjoy it. Nothing heavy, everything felt.",
+      title: "PULL",
+      subtitle: "Thickness 🚦",
+      tag: "AUTO",
+      tagColor: "red",
+      duration: "25-45 min",
+      focus: "🚦 GATE — check before you drive in. 🟢 Slept 7+ AND work OK: full session. 🟡 One failed: pulldown + row only, 3× each, 25 min. 🔴 Both failed: 45 min walk, no gym. This day is the pressure valve. Use it honestly.",
       sections: [
         {
-          name: "DELTS (PRIORITY)",
+          name: "BACK",
           exercises: [
-            { name: "Cable Lateral Raise (single arm)", sets: "4×12-15", note: "One arm at a time = better stretch + focus. Drop the last set.", priority: true },
-            { name: "Machine Lateral Raise", sets: "3×15", note: "Burnout, partials at the end — cap-delt roundness", priority: true },
-            { name: "Reverse Pec Deck", sets: "3×15-20", note: "Rear delts again — the more the better for 3D shoulders" }
+            { name: "Neutral-grip Pulldown", sets: "4×8-12", note: "Thickness bias, squeeze the mid-back", priority: true },
+            { name: "Single-arm Machine Row", sets: "3×10-12", note: "Full stretch, elbow back", priority: true },
+            { name: "DB Pullover", sets: "2×15", note: "Lat stretch finish" }
           ]
         },
         {
-          name: "ARMS (SUPERSET)",
+          name: "DELTS",
           exercises: [
-            { name: "EZ-Bar Curl", sets: "3×10-12", note: "Superset with the pushdown — strict, no swing", priority: true },
-            { name: "Rope Pushdown", sets: "3×12-15", note: "Superset with the curl, minimal rest — arm pump city" },
-            { name: "Cable / Hammer Curl", sets: "2×12-15", note: "Brachialis + forearm, thickens the whole arm" },
-            { name: "Overhead Tricep Extension", sets: "2×12-15", note: "Long-head stretch to finish" }
-          ]
-        },
-        {
-          name: "FINISH",
-          exercises: [
-            { name: "Cable Crunch", sets: "3×15", note: "Round the spine, full contraction — abs" },
-            { name: "Neck Extension", sets: "2×15-20", note: "Aesthetic detail — don't skip" }
+            { name: "Lateral Raise", sets: "2×15", note: "+ drop set on the last one" },
+            { name: "Reverse Pec Deck", sets: "3×15", note: "Rear delts, slow" }
           ]
         }
       ]
     },
     sat: {
       label: "SAT",
-      title: "VO2 MAX",
-      subtitle: "Norwegian 4×4",
-      tag: "VO2",
-      tagColor: "red",
-      duration: "35-40 min",
-      focus: "The one session that actually builds VO2 max — you have to spend minutes NEAR your ceiling to raise it. Four hard 4-min efforts is the minimum effective dose. Paired with the refeed: max output, then carbs up.",
+      title: "RUN + REFEED",
+      subtitle: "Easy 5km",
+      tag: "REFEED",
+      tagColor: "blue",
+      duration: "30-35 min",
+      focus: "Easy aerobic output, NOT hard intervals (keeps cortisol down on a big week). The one day carbs go up: leptin + thyroid reset.",
       sections: [
         {
-          name: "WARM-UP",
+          name: "SESSION",
           exercises: [
-            { name: "Easy Jog", sets: "8-10 min", note: "Build to a light sweat — do NOT skip, cold intervals wreck the first rep", priority: true }
+            { name: "5km Run", sets: "Easy pace", note: "Conversational, nasal if you can. Bungan loop.", priority: true }
           ]
         },
         {
-          name: "MAIN — 4×4",
+          name: "REFEED",
           exercises: [
-            { name: "4 min HARD @ 90-95% HRmax", sets: "×4 intervals", note: "~8-9/10 effort — can't hold a conversation, but sustainable to the 4-min mark. Bungan loop or any hill.", priority: true },
-            { name: "3 min easy jog recovery", sets: "between each", note: "Let HR drop to ~70% — the recovery is what lets the next rep hit VO2 max" }
-          ]
-        },
-        {
-          name: "COOL-DOWN + REFEED",
-          exercises: [
-            { name: "Easy Jog / Walk", sets: "5 min", note: "Flush the legs, drop HR gradually" },
-            { name: "Carbs +150-200g today", sets: "Rice, potatoes, dates, honey", note: "Refeed — keeps leptin + thyroid up after the hard output" }
+            { name: "Carbs +150-250g", sets: "Rice, potatoes, dates, honey", note: "Keeps leptin + thyroid up on the cut" }
           ]
         }
       ]
@@ -205,12 +212,20 @@ export const program = {
     sun: {
       label: "SUN",
       title: "REST",
-      subtitle: "Full recovery",
+      subtitle: "Recovery",
       tag: "OFF",
       tagColor: "gray",
-      duration: "—",
-      focus: "Walk, beach, surf. No structured training. Muscle is repaired on rest days — not built in extra sets.",
-      sections: []
+      duration: "45-60 min",
+      focus: "Recovery IS the program. Walk, sun, mobility. This is where cortisol drops and the physique gets built.",
+      sections: [
+        {
+          name: "RECOVERY",
+          exercises: [
+            { name: "Walk", sets: "45-60 min", note: "Easy, outdoors, morning light if you can", priority: true },
+            { name: "Box Breathing", sets: "5 min", note: "4-4-4-4. Down-regulate the nervous system." }
+          ]
+        }
+      ]
     }
   }
 };
@@ -218,12 +233,6 @@ export const program = {
 export const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
 // Cut plan — drives the CUT TRACKER card. Edit these to retarget the cut.
-//   journeyStartKg : where the whole cut began (for the full progress bar)
-//   startKg        : weight on startDate, the anchor for the on-track schedule
-//   startDate      : YYYY-MM-DD the 0.5kg/wk schedule is measured from
-//   targetKg       : numeric goal used for the math (midpoint of the range)
-//   targetLabel    : how the goal is shown
-//   rateKgPerWeek  : planned loss rate
 export const cutPlan = {
   journeyStartKg: 93,
   startKg: 80,

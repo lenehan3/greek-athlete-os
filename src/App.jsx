@@ -386,48 +386,51 @@ export default function App() {
       {/* Volume comparison */}
       <div className="bg-black rounded-3xl p-5 mt-3">
         <div className="text-yellow-500 text-[10px] font-mono tracking-[0.2em] mb-3">
-          WHY THIS WORKS
+          THE RULES
         </div>
         <div className="space-y-3 text-sm">
           <div className="flex items-start gap-3">
-            <div className="text-green-400 font-mono text-xs mt-1 whitespace-nowrap">STICK</div>
+            <div className="text-yellow-400 font-mono text-xs mt-1 whitespace-nowrap">RPT</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Adherence beats "optimal."</span> The program you enjoy and run for months out-builds the perfect one you quit in three weeks. Variety, pump, a fun delts+arms day — you show up because you want to.
+              <span className="text-white font-semibold">Compounds: add weight when set 1 hits the top of the range 2 sessions running.</span> Heaviest set first, drop ~10% each set.
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="text-purple-400 font-mono text-xs mt-1">SPLIT</div>
+            <div className="text-purple-400 font-mono text-xs mt-1">ISO</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Push / Pull / Legs / Delts.</span> Each muscle trained ~2×/week with enough volume to grow. More exercises per session than the minimalist block — that's where the enjoyment and the shape both come from.
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <div className="text-orange-400 font-mono text-xs mt-1">10-20</div>
-            <div className="text-stone-300">
-              <span className="text-white font-semibold">Volume drives growth.</span> ~10-20 hard sets per muscle per week is the hypertrophy sweet spot — side delts sit at the top of that range on purpose. <span className="text-stone-500">(Schoenfeld / Pelland 2025)</span>
+              <span className="text-white font-semibold">Double progression.</span> Reps to the top of the range first, then add load and start again.
             </div>
           </div>
           <div className="flex items-start gap-3">
             <div className="text-red-400 font-mono text-xs mt-1">RIR</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Hard, not grim.</span> Stop 1-2 reps shy of failure on most sets, take the last set of each exercise to the limit. Same growth as all-out RPT, far less joint beating and dread. <span className="text-stone-500">(Effort ≠ suffering)</span>
+              <span className="text-white font-semibold">Compounds 1-2 in reserve. Last isolation set 0-1.</span> Rest: compounds 2-3 min, isolation 60-90s.
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="text-blue-400 font-mono text-xs mt-1">+1</div>
+            <div className="text-blue-400 font-mono text-xs mt-1">LOAD</div>
             <div className="text-stone-300">
-              <span className="text-white font-semibold">Add a rep or a kilo.</span> On a cut, holding your numbers IS winning. Beat last week's logbook by one rep on the priority lifts and the physique takes care of itself.
+              <span className="text-white font-semibold">Deload week 6:</span> 60% load, no drop sets. Ramp: pulldowns not pull-ups, nothing overhead until the shoulder is cleared.
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <div className="text-green-400 font-mono text-xs mt-1">RCVR</div>
+            <div className="text-stone-300">
+              <span className="text-white font-semibold">Sleep 7.5-9h. Protein 2g/kg. Saturday refeed.</span> Recovery is the program. This is the cortisol lever.
             </div>
           </div>
         </div>
 
-        <div className="mt-4 pt-4 border-t border-white/5 text-stone-500 text-[11px] italic leading-relaxed">
-          Fine print: 4 lifting days + a VO2 session is more output than the minimalist block, so on a 500-cal deficit prioritise sleep and protein (2.2g/kg). If recovery slips, drop the Friday pump day first — it's the fun bonus, not the foundation.
+        <div className="mt-4 pt-4 border-t border-white/5">
+          <div className="text-stone-400 text-[10px] font-mono tracking-[0.2em] mb-2">WEEKLY CHECK</div>
+          <div className="text-stone-500 text-[11px] leading-relaxed">
+            Waking HR (38 base, +5 for 3 days = amber, back off) · bodyweight trend · set-1 RPT numbers · photos fortnightly, morning light, same spot.
+          </div>
         </div>
       </div>
 
       <div className="text-center text-stone-500 text-xs mt-4 mb-2 font-mono">
-        v7.0 · aesthetic split · {totalExercises} exercises today
+        v1.0 · aesthetic split · autoregulated · {totalExercises} exercises today
       </div>
     </div>
   );
