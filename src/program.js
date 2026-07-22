@@ -188,17 +188,18 @@ export const program = {
     },
     sat: {
       label: "SAT",
-      title: "RUN + REFEED",
-      subtitle: "Easy 5km",
-      tag: "REFEED",
+      title: "MOVE + REFEED",
+      subtitle: "Chill movement",
+      tag: "EASY",
       tagColor: "blue",
-      duration: "30-35 min",
-      focus: "Easy aerobic output, NOT hard intervals (keeps cortisol down on a big week). The one day carbs go up: leptin + thyroid reset.",
+      duration: "45-90 min",
+      focus: "Fun low-intensity movement, not a hard session. Play keeps cortisol down where a grindy run spikes it. The one day carbs go up (leptin + thyroid reset).",
       sections: [
         {
-          name: "SESSION",
+          name: "PLAY (pick one)",
           exercises: [
-            { name: "5km Run", sets: "Easy pace", note: "Conversational, nasal if you can. Bungan loop.", priority: true }
+            { name: "Tennis (social hit)", sets: "45-90 min", note: "Keep it a rally, not a sprint war. Fun = low cortisol.", priority: true },
+            { name: "Beach walk / surf / hike", sets: "45-90 min", note: "Easy, outdoors, morning light. Same fat-loss, zero stress." }
           ]
         },
         {
